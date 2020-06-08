@@ -1,0 +1,103 @@
+ 
+#container, #shedule_form{
+ display:none;
+ }
+ .glyphicon-refresh-animate {
+    -animation: spin .7s infinite linear;
+    -ms-animation: spin .7s infinite linear;
+    -webkit-animation: spinw .7s infinite linear;
+    -moz-animation: spinm .7s infinite linear;
+  }
+
+@  keyframes spin {
+    from {
+    transform: scale(1) rotate(0deg);
+  }
+
+  to {
+    transform: scale(1) rotate(360deg);
+  }
+}
+
+@-webkit-keyframes spinw {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@-moz-keyframes spinm {
+  from {
+    -moz-transform: rotate(0deg);
+  }
+
+  to {
+    -moz-transform: rotate(360deg);
+  }
+}
+
+.ic-close {
+cursor:pointer;
+}
+.blackout-page-load {
+  background-color: #000;
+  opacity: .7;
+  filter: alpha(opacity=70);
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100000;
+}
+
+.page-load {
+  text-align: center;
+  font-size: 18px;
+  background-color: #FFF;
+  border: 1px solid #ccc;
+  color: #337ab7;
+  width: 30%;
+  height: 25%;
+  position: fixed;
+  top: 36%;
+  left: 24.8%;
+  border-radius: 2px;
+  padding: 5%;
+  z-index: 100001;
+  margin-left: 10%;
+}
+
+.blackout-shedule_form {
+  background-color: #000;
+  opacity: .7;
+  filter: alpha(opacity=70);
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.shedule_form {
+  text-align: center;
+  background-color: #FFF;
+  border: 1px solid #ccc;
+  width: 60%;
+  height: 74%;
+  position: fixed;
+  top: 12%;
+  left: 10%;
+  border-radius: 4px;
+  padding: 0.5% 0;
+  z-index: 101;
+  margin-left: 10%;
+}
+
+textarea {
+resize:none;
+}

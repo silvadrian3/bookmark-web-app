@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Bookmark by Quisi.io</title>
+	<link rel="icon" href="images/favicon.ico">
+	<link rel="stylesheet" href="css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="css/heroic-features.css"/>
+	<link rel="stylesheet" href="css/main.css" type="text/css"/>
+	<link rel="stylesheet" href="css/jquery-ui.css">
+	<script src="js/jquery-1.10.2.js"></script>
+	<script src="js/jquery-ui.js"></script>
+	<script src="js/base64.js"></script>
+	<script src="js/apps.min.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/book_author_search.js"></script>
+</head>
+<body>
+    
+    
+    
+    
+    
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="index.html"><span style="color:#FFFFFF;">Lookup.ph</span></a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+           
+		   
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                
+                <div class="col-lg-4 pull-right">
+                    <input type="text" class="form-control" style="margin-top:10px; margin-bottom:10px" placeholder="I'm looking for ..." list="searchCategories">
+                    <datalist id="searchCategories">
+                        <option class="datalist-option" value="Books"></option>
+                        <option class="datalist-option" value="School Supplies"></option>
+                        <option class="datalist-option" value="Gadgets &amp; Accessories"></option>
+                        
+                        <!-- 
+                            Look for LAZADA for list of categories
+                        -->
+                    </datalist>
+                    
+                </div>
+            </div>
+			
+			
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+<form method="POST">
+
+<div class="maincontainer" ng-app="bookSearch" ng-controller="bookSearchCtrl">
+<div class="banner">
+    <div class="slogan">
+		<i>The perfect way to find Books with just one Search</i>
+    </div>
+    <div class="div-search">
+        <span class="txt-heading">Find used, new and best-selling books</span>
+        <div align="center">
+        <input type="text" name="searchkey" id="searchkey" class="txt-searchfield autofillSearch" placeholder="Search by Title or Author" autofocus />
+        <input type="button" ng-click="start_search();" class="btn_search" value="Search">
+            
+            
+        </div>
+    </div>
+    
+    <div>
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    </div>
+</div>
+</div>
+</form>
+
+
+</body>
+</html>

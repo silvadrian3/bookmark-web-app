@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Bookmark by Quisi.io</title>
+
+    <link rel="icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="css/bootstrap.min.css"></link>
+    <link rel="stylesheet" href="css/heroic-features.css"></link>
+	<link rel="stylesheet" href="css/searchresult.css" type="text/css"></link>
+	<link rel="stylesheet" href="css/jquery.datetimepicker.css" type="text/css"></link>
+	<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css"></link>
+
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery-1.10.2.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	
+
+</head>
+
+<body ng-app="bookSearchResult" ng-controller="bookSearchResultCtrl">
+	<div id="page-load">
+		<div class="blackout-page-load"></div>
+		<div class="page-load">
+			<span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span> Please wait...
+		</div>
+	</div>
+	
+<form method="POST" ng-submit="set_meetup()">
+	
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+				<!--
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+				-->
+                <a class="navbar-brand" href="index.html"><span style="color:#FFFFFF">Bookmark by Quisi.io</span></a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+			<!--
+            <div class="collapse navbar-collapse pull-right" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#">About Bookmark</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Contact Us</a>
+                    </li>
+					
+					<li>
+                        <a href="#">My Cart</a>
+                    </li>
+                </ul>
+            </div>
+			-->
+			
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+	<div id="shedule_form">
+		<div class="blackout-shedule_form"></div>
+		<div class="shedule_form">
+			<div class="col-lg-12 text-right text-danger">
+				<span class="fa fa-remove fa-2x ic-close" ng-click="close_schedule()"></span>
+			</div>
+			<div class="col-lg-4">
+				<div class="col-lg-12 hero-feature">
+						<div class="row">
+							<div class="col-lg-12">
+								<h5>{{disp_title}} <i>{{disp_edition}}</i></h5>
+							</div>
+							<div class="col-lg-2"></div>
+							<div class="thumbnail col-lg-8">
+								<img ng-src="{{disp_cover}}" alt="">
+							</div>
+							<div class="col-lg-2"></div>
+							<div class="col-lg-12">
+								<p>By {{disp_author}}</p>
+								<p>&#8369; {{disp_price}}</p>
+							</div>
+						</div>
+				</div>
+				
+				<input type="hidden" id="hdisp_book_id" value="{{disp_book_id}}">
+			</div>
+			<div class="col-lg-8">
+				<div class="form-group col-lg-12 text-left">
+					<div class="col-lg-12">
+						<h4>Please complete the form</h4>
+					</div>
+				</div>
+				<div class="form-group col-lg-12">
+					<div class="col-lg-6">
+						<input type="text" class="form-control" id="sc_firstname" placeholder="First Name" required>
+					</div>
+					
+					<div class="col-lg-6">
+						<input type="text" class="form-control" id="sc_lastname" placeholder="Last Name" required>
+					</div>
+				</div>
+				
+				<div class="form-group col-lg-12">
+					<div class="col-lg-12">
+						<input type="email" class="form-control" id="sc_email" placeholder="Email Address" required>
+					</div>
+				</div>
+				
+				<div class="form-group col-lg-12">
+					<div class="col-lg-12">
+						<input type="text" class="form-control" id="sc_contactno" placeholder="Contact Number" required>
+					</div>
+				</div>
+				
+				<div class="form-group col-lg-12">
+					<div class="col-lg-12">
+						<input type="text" class="form-control datetime_picker" id="sc_datetime" placeholder="Meetup Date and Time" required>
+					</div>
+				</div>
+				
+				<div class="form-group col-lg-12">
+					<div class="col-lg-12">
+						<textarea class="form-control" rows="4" id="sc_location" placeholder="Convenient Place for Meetup (Please include Landmarks)" required ></textarea>
+					</div>
+				</div>
+				
+				<div class="form-group col-lg-12">
+					<div class="col-lg-12">
+						<br/>
+						<input type="submit" class="btn btn-success" value="Set Meeting Now!">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+    <div id="container" class="container">
+        <div class="row">
+			<div class="row">
+				<h3>{{resultcount}} found</h3>
+			</div>
+		</div>
+        <!-- /.row -->
+
+        <!-- Page Features -->
+        <div class="row text-left">
+            <div class="row hero-feature" ng-repeat="val in searchResult">
+				<hr>
+                <div class="row">
+					<div class="col-md-3">
+						<div class="thumbnail">
+							<img ng-src="{{ val.cover_photo }}" alt="">
+						</div>					
+					</div>
+					<div class="col-md-1"></div>
+					<div class="col-md-8">						
+						<h4>{{ val.title }} <i>{{ val.edition }}</i></h4>
+						<p>By <b>{{ val.author }}</b></p>
+						<p><h4>&#8369; {{ val.price }}</h4></p>
+						<p>Published by {{ val.publisher }} on {{ val.date_published }}</i></p>
+						<p>Genre/Subject: {{ val.genre }}</p>
+						<p>Condition: {{ val.current_condition }}</p>
+						<br/>
+						<p><span class="btn btn-success" ng-click="start_schedule(val.book_id, val.title, val.edition, val.author, val.price, val.cover_photo)">Schedule Meetup Now!</span></p>
+					</div>
+                </div>
+            </div>
+			<div class="row hero-feature">
+				<small><a href="index.html">Click to try another Search</a></small>
+			</div>
+        </div>
+        <!-- /.row -->
+
+        <!-- Footer -->
+		<div class="row">
+			<div class="row">
+			<hr>
+				<p class="c-footer-details"></p>
+			</div>
+		</div>
+    </div>
+    <!-- /.container -->
+
+	<script src="js/base64.js"></script>
+	<script src="js/apps.min.js"></script>
+	<script src="js/jquery.datetimepicker.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/book_author_result.js"></script>
+	
+</form>	
+</body>
+
+</html>
